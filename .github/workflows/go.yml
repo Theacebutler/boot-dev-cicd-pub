@@ -22,5 +22,9 @@ jobs:
 
       - name: Get go version
         run: go version
+      - name: install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+      - name: Format
+        run: test -z $(go fmt ./...)
       - name: Test
         run: go test -v --cover ./...
