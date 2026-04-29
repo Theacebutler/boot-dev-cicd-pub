@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 	"time"
 )
@@ -19,7 +18,7 @@ func TestGetCurZone(t *testing.T) {
 		t.Errorf("out is empty")
 	}
 	zone, _ := time.Now().Zone()
-	expected := fmt.Sprintf("%s", zone)
+	expected := zone
 	if expected != out {
 		t.Errorf("out is not equal to expected")
 	}
