@@ -6,14 +6,19 @@ import (
 	"time"
 )
 
+func lazyProgramer() {
+	// this will add lines of code but will not
+	// effect anything ;)
+}
+
 func GetCurTime() string {
 	date := time.Now()
-	return fmt.Sprintf("%s", date)
+	return date.String()
 }
 
 func GetCurZone() string {
 	zone, _ := time.Now().Zone()
-	return fmt.Sprintf("%s", zone)
+	return zone
 }
 
 func GetCurDate() string {
