@@ -11,7 +11,13 @@ func GetCurTime() string {
 	return fmt.Sprintf("%s", date)
 }
 
+func GetCurZone() string {
+	zone, _ := time.Now().Zone()
+	return fmt.Sprintf("%s", zone)
+}
+
 func main() {
 	out := GetCurTime()
 	fmt.Println(out)
+	fmt.Println(GetCurZone())
 }
