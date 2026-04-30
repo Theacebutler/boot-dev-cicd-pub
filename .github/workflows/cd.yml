@@ -9,13 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup go
-        uses: actions/setup-go@v4
-
-      - name: build app
-        working-directory: ./notely
-
-        # build the notely app
-        run: pwd
-        # run: ./scripts/buildprud.sh
+        name: pwd
+        run: /bin/bash pwd
