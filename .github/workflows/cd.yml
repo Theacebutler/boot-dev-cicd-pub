@@ -5,6 +5,7 @@ on:
     branches: [master, dev]
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -15,8 +16,17 @@ jobs:
         with:
           #TODO: how can i get the vrsion from the go.mod file?
           go-version: '1.26'
-
       - name: build app bin
         run: scripts/buildprod.sh
-      - name: docker build
-        run: docker build  -t theacebutler/notely:latest  . --platform=linux/amd64
+        # set up gcloud CLI
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v3'
+
+      - name: 'Use gcloud CLI to build and deploy'
+        run: 'gcloud builds submit --tag
+          us-east4-docker.pkg.dev/notely-boot-dev-494920/notely-bootdev/notely_bin:latest'
