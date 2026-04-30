@@ -18,3 +18,6 @@ jobs:
         with:
           #TODO: how can i get the vrsion from the go.mod file?
           go-version: '1.26'
+
+      - name: build app bin
+        run: ./scripts/buildprod.sh
