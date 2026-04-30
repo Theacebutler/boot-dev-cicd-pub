@@ -17,7 +17,7 @@ jobs:
           go-version: '1.26'
 
       - name: pwd
-        run: /bin/bash pwd
+        run: pwd
 
       - name: ls
-        run: /bin/bash ls
+        run: ls
