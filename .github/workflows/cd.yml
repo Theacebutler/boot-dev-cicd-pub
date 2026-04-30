@@ -6,7 +6,7 @@ on:
 defaults:
   run:
     shell: bash
-    working-directory: ./notely
+    working-directory: notely
 jobs:
   build:
     runs-on: ubuntu-latest
