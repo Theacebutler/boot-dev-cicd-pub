@@ -17,4 +17,5 @@ jobs:
         working-directory: ./notely
 
         # build the notely app
-        run: ./scripts/buildprud.sh
+        run: pwd
+        # run: ./scripts/buildprud.sh
