@@ -3,7 +3,10 @@ name: CD
 on:
   push:
     branches: [master, dev]
-
+defaults:
+  run:
+    shell: bash
+    working-directory: ./notely
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,9 +18,3 @@ jobs:
         with:
           #TODO: how can i get the vrsion from the go.mod file?
           go-version: '1.26'
-
-      - name: pwd
-        run: pwd
-
-      - name: ls
-        run: ls
