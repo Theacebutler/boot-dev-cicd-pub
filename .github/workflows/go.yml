@@ -26,5 +26,9 @@ jobs:
         run: go install honnef.co/go/tools/cmd/staticcheck@latest
       - name: Format
         run: test -z $(go fmt ./...)
+      - name: check security
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+      - name: Run Gosec Security Scanner
+        run: gosec ./...
       - name: Test
         run: go test -v --cover ./...
